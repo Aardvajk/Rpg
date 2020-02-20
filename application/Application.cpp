@@ -10,7 +10,6 @@
 Application::Application(const Gx::Point &position, const Gx::DisplaySettings &settings) : Gx::Application(position, settings.size), graphics(hwnd(), settings)
 {
     DebugText::acquire(graphics);
-
     show();
 }
 
