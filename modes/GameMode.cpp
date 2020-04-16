@@ -13,5 +13,5 @@ bool GameMode::update(float delta)
 
 void GameMode::render(Graphics &graphics, float blend)
 {
-    graphics.device.clear({ 0.3f, 0.7f, 0.9f }, 1.0f);
+    graphics.device.clear(Gx::Color::fromInts(130, 178, 206), 1.0f);
 }
