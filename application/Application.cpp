@@ -4,12 +4,17 @@
 
 #include <pcx/str.h>
 
+#include "modes/GameMode.h"
+
 #include "debug/DebugText.h"
 #include "debug/MemUsage.h"
 
 Application::Application(const Gx::Point &position, const Gx::DisplaySettings &settings) : Gx::Application(position, settings.size), graphics(hwnd(), settings)
 {
     DebugText::acquire(graphics);
+
+    mode = new GameMode();
+
     show();
 }
 
@@ -51,6 +56,12 @@ void Application::update(float &accumulator, float delta)
     {
         fps.update(delta);
 
+        if(!mode->update(delta))
+        {
+            close();
+            return;
+        }
+
         accumulator -= delta;
     }
 
@@ -58,7 +69,7 @@ void Application::update(float &accumulator, float delta)
 
     graphics.device.begin();
 
-    graphics.device.clear({ 0.3f, 0.7f, 0.9f }, 1.0f);
+    mode->render(graphics, accumulator / delta);
     renderDebugInfo();
 
     graphics.device.end();

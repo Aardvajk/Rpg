@@ -36,11 +36,15 @@ SOURCES += \
         debug/FpsCounter.cpp \
         debug/MemUsage.cpp \
         graphics/Graphics.cpp \
-        main.cpp
+        main.cpp \
+        modes/GameMode.cpp \
+        modes/Mode.cpp
 
 HEADERS += \
     application/Application.h \
     debug/DebugText.h \
     debug/FpsCounter.h \
     debug/MemUsage.h \
-    graphics/Graphics.h
+    graphics/Graphics.h \
+    modes/GameMode.h \
+    modes/Mode.h

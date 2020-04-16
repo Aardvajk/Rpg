@@ -5,9 +5,13 @@
 
 #include <GxGraphics/GxDisplaySettings.h>
 
+#include <pcx/scoped_ptr.h>
+
 #include "graphics/Graphics.h"
 
 #include "debug/FpsCounter.h"
+
+class Mode;
 
 class Application : public Gx::Application
 {
@@ -23,6 +27,8 @@ private:
 
     Graphics graphics;
     FpsCounter fps;
+
+    pcx::scoped_ptr<Mode> mode;
 };
 
 #endif // APPLICATION_H
